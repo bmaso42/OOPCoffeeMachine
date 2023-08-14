@@ -13,23 +13,21 @@ def report():
     money_machine.report()
 
 
-def process_coins():
-    money_machine.process_coins()
 
-
-def prompt():
-    result = input("What would you like? (espresso/latte/cappuccino): ")
-    return result
+# def prompt():
+#     result = input("What would you like? (espresso/latte/cappuccino): ")
+#     return result
 
 
 def main_function():
     terminate = False
     while not terminate:
-        command = prompt()
+        command = input("What would you like? (espresso/latte/cappuccino): ")
         if command.lower() == "off":
             terminate = True
         elif command.lower() == "report":
-            report()
+            coffee_maker.report()
+            money_machine.report()
         else:
             drink = menu.find_drink(command)
             resources = coffee_maker.is_resource_sufficient(drink)
